@@ -1,0 +1,23 @@
+.meme {
+  &Content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &Image {
+      max-width: 100%;
+      max-height: 70vh;
+    }
+  }
+
+  &Actions {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &Buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+}

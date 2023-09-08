@@ -1,0 +1,30 @@
+.home {
+  align-items: center;
+  background: url("../../../public/images/background.png"),
+    linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(64, 142, 145, 1) 88%);
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+
+  @media only screen and (max-width: 899px) {
+    flex-direction: column-reverse;
+  }
+
+  &Text {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 60px;
+    @media only screen and (max-width: 899px) {
+      padding: 20px 30px;
+    }
+  }
+  &Image {
+    height: 49vw;
+    @media only screen and (max-width: 899px) {
+      height: 20vh;
+      margin-top: 20px;
+    }
+  }
+}

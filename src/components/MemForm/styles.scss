@@ -1,0 +1,23 @@
+.memForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &Box {
+    align-items: center;
+    background-color: $pink200 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 60%;
+    padding: 20px;
+
+    &Buttons {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

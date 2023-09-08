@@ -1,0 +1,20 @@
+.MuiMenuItem-root {
+  color: $primary100 !important;
+  font-size: 22px !important;
+  font-weight: bold !important;
+  padding: 8px 28px !important;
+}
+
+.Mui-selected {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.tab {
+  position: relative;
+  &Icon {
+    position: absolute;
+    right: 45%;
+    top: 0;
+  }
+}
