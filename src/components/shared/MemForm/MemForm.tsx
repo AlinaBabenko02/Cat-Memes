@@ -11,6 +11,18 @@ import "./styles.scss";
 import { Button } from "../../ui/Button/Button";
 import { MemTypeEnum } from "../../../data/enums/MemContentType";
 import { AddMemFormikValues } from "../../../data/types/AddMemFormikValues";
+import { object, string } from "yup";
+
+const urlReg =
+  /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/;
+
+const validationSchema = object({
+  title: string().required("Title is required"),
+  author: string().required("Author is required"),
+  link: string()
+    .matches(urlReg, "Enter correct link!")
+    .required("Link is required"),
+});
 
 interface MemFormProps {
   initialValues?: AddMemFormikValues;
@@ -30,6 +42,7 @@ export const MemForm: React.FC<MemFormProps> = ({
       link: initialValues.link || "",
       contentType: initialValues.contentType || MemTypeEnum.IMAGE,
     },
+    validationSchema: validationSchema,
     onSubmit: handleSubmit,
   });
 
@@ -49,6 +62,8 @@ export const MemForm: React.FC<MemFormProps> = ({
               onChange={formik.handleChange}
               margin="normal"
               required
+              error={formik.touched.title && Boolean(formik.errors.title)}
+              helperText={formik.touched.title && formik.errors.title}
             />
             <TextField
               fullWidth
@@ -60,6 +75,8 @@ export const MemForm: React.FC<MemFormProps> = ({
               onChange={formik.handleChange}
               margin="normal"
               required
+              error={formik.touched.author && Boolean(formik.errors.author)}
+              helperText={formik.touched.author && formik.errors.author}
             />
             <TextField
               fullWidth
@@ -71,6 +88,8 @@ export const MemForm: React.FC<MemFormProps> = ({
               onChange={formik.handleChange}
               margin="normal"
               required
+              error={formik.touched.link && Boolean(formik.errors.link)}
+              helperText={formik.touched.link && formik.errors.link}
             />
 
             <RadioGroup
