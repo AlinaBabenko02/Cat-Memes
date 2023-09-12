@@ -9,8 +9,8 @@ import {
 import { useFormik } from "formik";
 import "./styles.scss";
 import { Button } from "../../ui/Button/Button";
-import { MemTypeEnum } from "../../enums/MemContentType";
-import { AddMemFormikValues } from "../../types/AddMemFormikValues";
+import { MemTypeEnum } from "../../../data/enums/MemContentType";
+import { AddMemFormikValues } from "../../../data/types/AddMemFormikValues";
 
 interface MemFormProps {
   initialValues?: AddMemFormikValues;

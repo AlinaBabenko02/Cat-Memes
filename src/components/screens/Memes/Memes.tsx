@@ -1,14 +1,14 @@
 import AddIcon from "@mui/icons-material/Add";
-import { MemesList } from "../../components/MemesList/MemesList";
+import { MemesList } from "../../shared/MemesList/MemesList";
 import { Button } from "../../ui/Button/Button";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMemes } from "../../data/redux/memes";
+import { getMemes } from "../../../data/redux/memes";
 import { Dispatch } from "redux";
-import { ToggleButtonTypes } from "../../components/ToggleButtonTypes/ToggleButtonTypes";
+import { ToggleButtonTypes } from "../../shared/ToggleButtonTypes/ToggleButtonTypes";
 
 export const Memes = () => {
   const memes = useSelector((state) => state.memes);

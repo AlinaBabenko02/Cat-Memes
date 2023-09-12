@@ -1,9 +1,9 @@
 import { deleteMeme, updateMeme } from "./../api";
 import { createMeme, fetchMemes } from "../api";
-import { AddMemFormikValues } from "../../types/AddMemFormikValues";
+import { AddMemFormikValues } from "../types/AddMemFormikValues";
 import { Dispatch } from "redux";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { MemType } from "../../types/MemType";
+import { MemType } from "../types/MemType";
 
 const ADD = "ADD";
 const SET = "SET";

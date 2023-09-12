@@ -6,14 +6,14 @@ import {
   DialogTitle,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { MemType } from "../../types/MemType";
+import { MemType } from "../../../data/types/MemType";
 import { Button } from "../../ui/Button/Button";
-import { removeMem } from "../../data/redux/memes";
+import { removeMem } from "../../../data/redux/memes";
 import "./styles.scss";
 import { EditMeme } from "../EditMeme/EditMeme";
 import { LikeButton } from "../LikeButton/LikeButton";
 import { Video } from "../Video/Video";
-import { MemTypeEnum } from "../../enums/MemContentType";
+import { MemTypeEnum } from "../../../data/enums/MemContentType";
 
 export interface MemeDetailsProp {
   isOpened: boolean;

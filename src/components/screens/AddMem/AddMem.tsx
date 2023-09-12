@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { MemForm } from "../../components/MemForm/MemForm";
-import { AddMemFormikValues } from "../../types/AddMemFormikValues";
-import { addMem } from "../../data/redux/memes";
+import { MemForm } from "../../shared/MemForm/MemForm";
+import { AddMemFormikValues } from "../../../data/types/AddMemFormikValues";
+import { addMem } from "../../../data/redux/memes";
 
 export const AddMem = () => {
   const navigate = useNavigate();

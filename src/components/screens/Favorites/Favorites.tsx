@@ -1,10 +1,10 @@
-import { MemesList } from "../../components/MemesList/MemesList";
+import { MemesList } from "../../shared/MemesList/MemesList";
 import { Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMemes } from "../../data/redux/memes";
-import { isFavorite } from "../../data/localStorage";
-import { MemType } from "../../types/MemType";
+import { getMemes } from "../../../data/redux/memes";
+import { isFavorite } from "../../../data/localStorage";
+import { MemType } from "../../../data/types/MemType";
 
 export const FavoriteMemes = () => {
   const dispatch = useDispatch();

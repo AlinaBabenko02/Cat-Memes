@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { MemItem } from "../MemItem/MemItem";
 import "./styles.scss";
-import { MemType } from "../../types/MemType";
+import { MemType } from "../../../data/types/MemType";
 
 export const MemesList: React.FC<{ memes: MemType[] }> = ({ memes }) => {
   return (

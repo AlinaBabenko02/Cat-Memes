@@ -1,12 +1,12 @@
 import { Paper, Typography } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
-import { MemType } from "../../types/MemType";
+import { MemType } from "../../../data/types/MemType";
 import { useState } from "react";
 import { MemeDetails } from "../MemDetails/MemDetails";
 import { LikeButton } from "../LikeButton/LikeButton";
-import { isFavorite } from "../../data/localStorage";
+import { isFavorite } from "../../../data/localStorage";
 import "./styles.scss";
-import { MemTypeEnum } from "../../enums/MemContentType";
+import { MemTypeEnum } from "../../../data/enums/MemContentType";
 
 export const MemItem: React.FC<{ meme: MemType }> = ({ meme }) => {
   const [isOpened, setIsOpened] = useState(false);

@@ -1,6 +1,9 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { IconButton } from "@mui/material";
-import { addToFavorites, removeFromFavorites } from "../../data/localStorage";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../../data/localStorage";
 
 interface LikeButtonProps {
   isLiked: boolean;

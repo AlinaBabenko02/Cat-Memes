@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
-import { MemForm } from "../../components/MemForm/MemForm";
-import { AddMemFormikValues } from "../../types/AddMemFormikValues";
+import { MemForm } from "../MemForm/MemForm";
+import { AddMemFormikValues } from "../../../data/types/AddMemFormikValues";
 import { TransitionProps } from "@mui/material/transitions";
 import React from "react";
 import { Dialog, DialogTitle, Slide } from "@mui/material";
-import { MemType } from "../../types/MemType";
-import { updateMem } from "../../data/redux/memes";
+import { MemType } from "../../../data/types/MemType";
+import { updateMem } from "../../../data/redux/memes";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

@@ -1,5 +1,5 @@
 import { ToggleButtonGroup, ToggleButton } from "@mui/material";
-import { MemTypeEnum } from "../../enums/MemContentType";
+import { MemTypeEnum } from "../../../data/enums/MemContentType";
 
 interface ToggleButtonTypesProps {
   value: boolean;

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { AddMemFormikValues } from "../types/AddMemFormikValues";
-import { MemType } from "../types/MemType";
+import { AddMemFormikValues } from "./types/AddMemFormikValues";
+import { MemType } from "./types/MemType";
 
 const url = "https://cat-memes-763e0-default-rtdb.firebaseio.com";
 
