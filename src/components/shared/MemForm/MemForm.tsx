@@ -12,16 +12,13 @@ import { Button } from "../../ui/Button/Button";
 import { MemTypeEnum } from "../../../data/enums/MemContentType";
 import { AddMemFormikValues } from "../../../data/types/AddMemFormikValues";
 import { object, string } from "yup";
-
-const urlReg =
-  /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/;
+import { useSelector } from "react-redux";
+import { MemesStateType } from "../../../data/types/MemesStateType";
 
 const validationSchema = object({
   title: string().required("Title is required"),
   author: string().required("Author is required"),
-  link: string()
-    .matches(urlReg, "Enter correct link!")
-    .required("Link is required"),
+  link: string().required("Link is required"),
 });
 
 interface MemFormProps {
@@ -35,6 +32,8 @@ export const MemForm: React.FC<MemFormProps> = ({
   handelCancel,
   handleSubmit,
 }) => {
+  const memes: MemesStateType = useSelector((state) => state.memes);
+  const isLoading = memes.isMutating;
   const formik = useFormik({
     initialValues: {
       title: initialValues.title || "",
@@ -114,10 +113,20 @@ export const MemForm: React.FC<MemFormProps> = ({
             </RadioGroup>
           </div>
           <div className="memFormBoxButtons">
-            <Button variant="outlined" color="primary" onClick={handelCancel}>
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={handelCancel}
+              isLoading={isLoading}
+            >
               <Typography fontWeight="bold">Back</Typography>
             </Button>
-            <Button variant="contained" color="primary" type="submit">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              isLoading={isLoading}
+            >
               <Typography fontWeight="bold">Meow!</Typography>
             </Button>
           </div>

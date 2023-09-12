@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Button as MUIButton } from "@mui/material";
+import { CircularProgress, Button as MUIButton } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -15,6 +15,7 @@ export interface ButtonProps {
   color: "primary" | "secondary";
   onClick?: () => void;
   type?: "submit";
+  isLoading?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -23,10 +24,20 @@ export const Button: React.FC<ButtonProps> = ({
   color,
   onClick,
   type,
+  isLoading,
 }) => {
   return (
     <ThemeProvider theme={theme}>
-      <MUIButton variant={variant} color={color} onClick={onClick} type={type}>
+      <MUIButton
+        variant={variant}
+        color={color}
+        onClick={onClick}
+        type={type}
+        disabled={isLoading}
+      >
+        {isLoading && (
+          <CircularProgress size={24} sx={{ marginRight: "4px" }} />
+        )}
         {children}
       </MUIButton>
     </ThemeProvider>

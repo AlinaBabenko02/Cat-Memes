@@ -5,7 +5,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MemType } from "../../../data/types/MemType";
 import { Button } from "../../ui/Button/Button";
 import { removeMem } from "../../../data/redux/memes";
@@ -14,6 +14,7 @@ import { EditMeme } from "../EditMeme/EditMeme";
 import { LikeButton } from "../LikeButton/LikeButton";
 import { Video } from "../Video/Video";
 import { MemTypeEnum } from "../../../data/enums/MemContentType";
+import { MemesStateType } from "../../../data/types/MemesStateType";
 
 export interface MemeDetailsProp {
   isOpened: boolean;
@@ -30,6 +31,8 @@ export const MemeDetails: React.FC<MemeDetailsProp> = ({
   memeIsLiked,
   setMemeIsLiked,
 }) => {
+  const memes: MemesStateType = useSelector((state) => state.memes);
+  const isLoading = memes.isMutating;
   const dispatch = useDispatch();
   const [editIsOpened, setEditIsOpened] = useState(false);
 
@@ -72,6 +75,7 @@ export const MemeDetails: React.FC<MemeDetailsProp> = ({
                   variant="outlined"
                   color="primary"
                   onClick={handleDelete}
+                  isLoading={isLoading}
                 >
                   Delete
                 </Button>
@@ -79,6 +83,7 @@ export const MemeDetails: React.FC<MemeDetailsProp> = ({
                   variant="contained"
                   color="primary"
                   onClick={() => setEditIsOpened(true)}
+                  isLoading={isLoading}
                 >
                   Edit
                 </Button>

@@ -9,18 +9,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMemes } from "../../../data/redux/memes";
 import { Dispatch } from "redux";
 import { ToggleButtonTypes } from "../../shared/ToggleButtonTypes/ToggleButtonTypes";
+import { MemType } from "../../../data/types/MemType";
+import { Loader } from "../../shared/Loader/Loader";
 
 export const Memes = () => {
-  const memes = useSelector((state) => state.memes);
   const dispatch: Dispatch = useDispatch();
+  const memes = useSelector((state) => state.memes);
   const [shownType, setShownType] = useState("all");
-  const displayedMemes = memes.filter(
-    (meme) => shownType === "all" || meme.contentType === shownType
-  );
 
   useEffect(() => {
     dispatch(getMemes);
   }, []);
+
+  if (memes.isFetching) {
+    return <Loader />;
+  }
+  const displayedMemes = memes.all.filter(
+    (meme: MemType) => shownType === "all" || meme.contentType === shownType
+  );
 
   return (
     <div>
